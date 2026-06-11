@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import LandingPage from "./components/LandingPage.jsx";
 import QuestionCard from "./components/QuestionCard.jsx";
 import ResultPage from "./components/ResultPage.jsx";
+import AppFooter from "./components/AppFooter.jsx";
 import { questions } from "./data/questions.js";
 import { calculateScores, getRecommendation } from "./lib/scoring.js";
 
@@ -68,32 +69,43 @@ export default function App() {
   }
 
   if (!hasStarted) {
-    return <LandingPage onStart={startAssessment} />;
+    return (
+      <div className="page-frame">
+        <LandingPage onStart={startAssessment} />
+        <AppFooter />
+      </div>
+    );
   }
 
   if (showResult && Object.keys(answers).length === questions.length) {
     return (
-      <ResultPage
-        scores={scores}
-        recommendation={recommendation}
-        onBack={goBack}
-        onRestart={restartAssessment}
-      />
+      <div className="page-frame">
+        <ResultPage
+          scores={scores}
+          recommendation={recommendation}
+          onBack={goBack}
+          onRestart={restartAssessment}
+        />
+        <AppFooter />
+      </div>
     );
   }
 
   return (
-    <main className="app-shell">
-      <QuestionCard
-        question={currentQuestion}
-        questionNumber={currentQuestionIndex + 1}
-        totalQuestions={questions.length}
-        selectedOptionIndex={selectedOptionIndex}
-        onSelectOption={selectOption}
-        onBack={goBack}
-        onNext={goNext}
-        isLastQuestion={isLastQuestion}
-      />
-    </main>
+    <div className="page-frame">
+      <main className="app-shell">
+        <QuestionCard
+          question={currentQuestion}
+          questionNumber={currentQuestionIndex + 1}
+          totalQuestions={questions.length}
+          selectedOptionIndex={selectedOptionIndex}
+          onSelectOption={selectOption}
+          onBack={goBack}
+          onNext={goNext}
+          isLastQuestion={isLastQuestion}
+        />
+      </main>
+      <AppFooter />
+    </div>
   );
 }

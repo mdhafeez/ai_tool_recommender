@@ -21,11 +21,16 @@ button {
   font: inherit;
 }
 
+.page-frame {
+  background: #f5f7f9;
+  min-height: 100vh;
+}
+
 .app-shell {
   align-items: center;
   display: flex;
   justify-content: center;
-  min-height: 100vh;
+  min-height: calc(100vh - 72px);
   padding: 32px 18px;
 }
 
@@ -325,6 +330,17 @@ h3 {
   background: #fff8e6;
   border-color: #edd28a;
   color: #3e321b;
+}
+
+.app-footer {
+  color: #52677a;
+  font-size: 0.9rem;
+  padding: 18px;
+  text-align: center;
+}
+
+.app-footer p {
+  margin-bottom: 0;
 }
 
 @media (max-width: 760px) {
