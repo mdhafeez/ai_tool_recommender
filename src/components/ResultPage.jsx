@@ -1,7 +1,16 @@
 import ScoreCard from "./ScoreCard.jsx";
+import EthicsStatusCard from "./EthicsStatusCard.jsx";
 import { platforms } from "../data/platforms.js";
 
-export default function ResultPage({ recommendation, language, translations, onBack, onRestart }) {
+export default function ResultPage({
+  recommendation,
+  language,
+  translations,
+  ethicsSummary,
+  onStartAdvancedEthics,
+  onBack,
+  onRestart
+}) {
   const { ranked, top, secondary, isCloseTopTwo, areAllClose } = recommendation;
   const platformText = platforms[language];
   const topPlatform = platformText[top.key];
@@ -80,6 +89,8 @@ export default function ResultPage({ recommendation, language, translations, onB
         <p className="section-label">{translations.nextStep}</p>
         <p>{topPlatform.nextStep}</p>
       </section>
+
+      <EthicsStatusCard ethicsSummary={ethicsSummary} onStartAdvancedEthics={onStartAdvancedEthics} />
 
       <section className="disclaimer-box">
         <p className="section-label">{translations.neutralNote}</p>

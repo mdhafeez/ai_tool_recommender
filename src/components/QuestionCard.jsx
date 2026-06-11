@@ -13,13 +13,14 @@ export default function QuestionCard({
   isLastQuestion
 }) {
   const questionText = question.text[language];
+  const sectionLabel = question.sectionLabel || translations.assessmentLabel;
 
   return (
     <section className="question-card">
       <ProgressBar current={questionNumber} total={totalQuestions} translations={translations} />
 
       <div className="question-content">
-        <p className="section-label">{translations.assessmentLabel}</p>
+        <p className="section-label">{sectionLabel}</p>
         <h2>{questionText}</h2>
         <div className="option-list" role="radiogroup" aria-label={questionText}>
           {question.options.map((option, optionIndex) => {

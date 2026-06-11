@@ -8,28 +8,19 @@ Alat ini membandingkan tiga kategori:
 - Claude.ai + Claude Code
 - Gemini / Gemini for Google Workspace + Gemini Code Assist
 
-## Cara Skor Berfungsi
+## Tujuan Aplikasi
 
-Setiap jawapan menambah mata kepada satu atau lebih kategori AI. Selepas semua 10 soalan dijawab, aplikasi mengira jumlah skor, menyusun skor tertinggi ke terendah, dan memaparkan:
+Tujuan utama aplikasi ini ialah memberi cadangan awal tentang kategori AI yang lebih sesuai berdasarkan jawapan pengguna. Aplikasi ini tidak menyatakan bahawa satu platform lebih baik secara mutlak berbanding platform lain.
 
-- Cadangan utama
-- Pilihan kedua yang juga boleh dipertimbangkan
-- Skor ringkas
-- Sebab cadangan
-- Perkara yang perlu diberi perhatian
-- Cadangan tindakan seterusnya
+## Cara Skor Cadangan AI Berfungsi
 
-Jika dua skor tertinggi berbeza 3 mata atau kurang, aplikasi memaparkan mesej bahawa keputusan hampir seimbang. Jika ketiga-tiga skor hampir sama, aplikasi mencadangkan penilaian lanjut berdasarkan ekosistem kerja, dasar data, bajet dan keperluan sebenar pengguna.
-
-## Cara Edit Soalan
-
-Soalan dan skor berada dalam:
+Soalan cadangan AI berada dalam:
 
 ```text
 src/data/questions.js
 ```
 
-Setiap pilihan mempunyai objek `scores` seperti:
+Setiap jawapan menambah mata kepada satu atau lebih kategori AI melalui objek `scores`:
 
 ```js
 scores: {
@@ -39,9 +30,61 @@ scores: {
 }
 ```
 
-Gunakan mata antara 1 hingga 5 dan pastikan pemberat kekal seimbang supaya setiap kategori mempunyai peluang realistik untuk menjadi cadangan utama.
+Selepas soalan cadangan AI dijawab, aplikasi mengira jumlah skor, menyusun skor tertinggi ke terendah, dan memaparkan cadangan utama serta pilihan kedua.
 
-## Cara Edit Teks Cadangan
+## Skor Etika Adalah Berasingan
+
+Penilaian etika tidak menambah atau mengurangkan skor mana-mana platform AI. Jawapan etika hanya digunakan untuk menilai tahap kesediaan penggunaan AI secara bertanggungjawab.
+
+Ini penting supaya cadangan platform kekal neutral dan berdasarkan keperluan kerja pengguna, bukan berdasarkan jenama atau andaian bahawa satu platform lebih selamat daripada platform lain.
+
+## Penilaian Etika Asas
+
+Tiga soalan etika asas berada dalam:
+
+```text
+src/data/basicEthicsQuestions.js
+```
+
+Soalan ini mengira skor risiko etika asas dan memaparkan status:
+
+- `Baik` untuk skor 0 hingga 2
+- `Sederhana` untuk skor 3 hingga 5
+- `Perlu Perhatian` untuk skor 6 hingga 9
+
+Status ini dipaparkan pada halaman keputusan utama di bawah cadangan platform AI.
+
+## Penilaian Etika AI Lanjutan
+
+Penilaian lanjutan adalah pilihan. Pengguna boleh memilih butang `Semak Etika AI Dengan Lebih Terperinci` pada halaman keputusan.
+
+Soalan lanjutan berada dalam:
+
+```text
+src/data/advancedEthicsQuestions.js
+```
+
+Penilaian lanjutan menghasilkan laporan ringkas yang mengandungi:
+
+- Status keseluruhan
+- Skor risiko etika
+- Ringkasan mengikut prinsip
+- Perkara yang perlu diberi perhatian
+- Cadangan tindakan susulan
+
+## Pemetaan Prinsip Etika AI JDN
+
+Tujuh soalan etika lanjutan dipetakan kepada prinsip berikut:
+
+- Keadilan
+- Kebolehpercayaan, Keselamatan dan Kawalan
+- Privasi dan Keselamatan Data
+- Keterangkuman
+- Ketelusan
+- Akauntabiliti
+- Kesejahteraan Manusia dan Sosial
+
+## Cara Edit Teks Cadangan Platform
 
 Maklumat platform, sebab cadangan, senarai kesesuaian, perhatian dan tindakan seterusnya berada dalam:
 
@@ -51,11 +94,33 @@ src/data/platforms.js
 
 Edit teks di situ jika organisasi mahu menyesuaikan bahasa, polisi dalaman atau contoh use case.
 
+## Cara Edit Skor Etika
+
+Untuk penilaian asas, edit nilai `ethicsRisk` dalam:
+
+```text
+src/data/basicEthicsQuestions.js
+```
+
+Untuk penilaian lanjutan, edit nilai `risk` dalam:
+
+```text
+src/data/advancedEthicsQuestions.js
+```
+
+Pastikan skor etika kekal berasingan daripada `scores` platform AI.
+
 ## Cara Jalankan Secara Lokal
 
 ```bash
 npm install
 npm run dev
+```
+
+Pada Windows PowerShell, jika `npm.ps1` disekat oleh execution policy, gunakan:
+
+```bash
+npm.cmd run dev
 ```
 
 Kemudian buka URL yang dipaparkan oleh Vite, biasanya:
@@ -64,6 +129,12 @@ Kemudian buka URL yang dipaparkan oleh Vite, biasanya:
 http://127.0.0.1:5173
 ```
 
+Untuk semak build deployment:
+
+```bash
+npm.cmd run build
+```
+
 ## Nota Penting
 
-Alat ini bersifat nasihat awal sahaja. Ia tidak menyatakan bahawa satu platform sentiasa lebih sesuai berbanding platform lain. Keputusan akhir perlu disahkan melalui pilot kecil, semakan dasar organisasi, keselamatan data, bajet, integrasi sistem dan keperluan pengguna sebenar.
+Alat ini bersifat nasihat awal sahaja. Ia tidak menggantikan dasar rasmi organisasi, nasihat perundangan, garis panduan keselamatan data atau penilaian risiko yang lebih menyeluruh. Keputusan akhir perlu disahkan melalui pilot kecil, semakan dasar organisasi, keselamatan data, bajet, integrasi sistem dan keperluan pengguna sebenar.

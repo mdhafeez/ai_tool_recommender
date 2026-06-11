@@ -363,6 +363,86 @@ h3 {
   color: #3e321b;
 }
 
+.ethics-panel {
+  border-top: 5px solid #00796b;
+}
+
+.status-badge {
+  border-radius: 999px;
+  display: inline-flex;
+  font-weight: 800;
+  margin-bottom: 14px;
+  padding: 8px 14px;
+}
+
+.status-baik {
+  background: #e7f6ec;
+  color: #17633a;
+}
+
+.status-sederhana {
+  background: #fff3d6;
+  color: #73510d;
+}
+
+.status-perlu-perhatian {
+  background: #fde8e8;
+  color: #8a1f1f;
+}
+
+.muted-note,
+.guidance-text {
+  color: #52677a;
+}
+
+.guidance-text {
+  background: #f8fafc;
+  border: 1px solid #dce3ea;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  padding: 14px;
+}
+
+.advanced-intro {
+  border-bottom: 1px solid #dce3ea;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+}
+
+.advanced-intro h1 {
+  font-size: clamp(1.65rem, 3vw, 2.4rem);
+}
+
+.advanced-intro p:last-child {
+  color: #334155;
+  margin-bottom: 0;
+}
+
+.ethics-report-list,
+.ethics-summary-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.ethics-report-item,
+.ethics-summary-item {
+  background: #f8fafc;
+  border: 1px solid #dce3ea;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.ethics-report-item h3,
+.ethics-summary-item h3 {
+  line-height: 1.35;
+  margin-bottom: 14px;
+}
+
+.compact-list {
+  margin-top: 0;
+}
+
 .app-footer {
   color: #52677a;
   font-size: 0.9rem;
@@ -418,12 +498,66 @@ h3 {
 }
 
 @media print {
+  @page {
+    margin: 14mm;
+    size: A4;
+  }
+
+  :root,
+  body,
+  .page-frame {
+    background: #ffffff;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
   .result-actions {
     display: none;
   }
 
   .app-shell {
+    display: block;
     padding: 0;
+  }
+
+  .result-shell {
+    max-width: none;
+    width: 100%;
+  }
+
+  .result-header {
+    break-after: avoid;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: 24pt;
+    line-height: 1.15;
+  }
+
+  h2 {
+    font-size: 16pt;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: 11pt;
+  }
+
+  p,
+  li {
+    font-size: 10pt;
+    line-height: 1.42;
+  }
+
+  .result-grid,
+  .detail-grid,
+  .score-grid,
+  .ethics-summary-grid {
+    display: block;
   }
 
   .intro-card,
@@ -431,7 +565,48 @@ h3 {
   .panel,
   .recommendation-card,
   .disclaimer-box,
-  .balance-box {
+  .balance-box,
+  .score-card,
+  .ethics-summary-item,
+  .ethics-report-item {
+    break-inside: avoid;
     box-shadow: none;
+    margin-bottom: 10px;
+    page-break-inside: avoid;
+  }
+
+  .recommendation-card,
+  .panel,
+  .disclaimer-box,
+  .balance-box,
+  .score-card,
+  .ethics-summary-item {
+    padding: 12px;
+  }
+
+  .primary-recommendation,
+  .ethics-panel {
+    border-top-width: 3px;
+  }
+
+  .score-card {
+    min-height: 0;
+  }
+
+  .score-card strong {
+    font-size: 14pt;
+  }
+
+  .clean-list {
+    margin-top: 8px;
+  }
+
+  .clean-list li + li {
+    margin-top: 4px;
+  }
+
+  .app-footer {
+    color: #52677a;
+    padding: 8px 0 0;
   }
 }

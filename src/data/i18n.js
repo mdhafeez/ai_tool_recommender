@@ -37,7 +37,7 @@ export const translations = {
     allClose:
       "Keputusan menunjukkan ketiga-tiga pilihan mempunyai kesesuaian yang hampir sama. Pemilihan akhir perlu dibuat berdasarkan ekosistem kerja, dasar data, bajet dan keperluan pengguna sebenar.",
     disclaimer:
-      "Keputusan ini ialah cadangan berdasarkan jawapan yang diberikan, bukan penilaian mutlak bahawa satu platform lebih baik daripada platform lain. Setiap platform mempunyai kekuatan tersendiri dan pemilihan akhir perlu mengambil kira dasar organisasi, keselamatan data, bajet, integrasi sistem dan keperluan pengguna sebenar.",
+      "Penilaian ini ialah panduan awal sahaja. Ia tidak menggantikan dasar rasmi organisasi, nasihat perundangan, garis panduan keselamatan data atau penilaian risiko yang lebih menyeluruh. Pemilihan dan penggunaan AI perlu mengambil kira dasar organisasi, keselamatan data, bajet, integrasi sistem dan keperluan pengguna sebenar.",
     footer: "Copyright 2026 CoE Latihan AI Sektor Awam"
   },
   en: {
