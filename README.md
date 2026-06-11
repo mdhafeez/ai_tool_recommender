@@ -66,4 +66,4 @@ http://127.0.0.1:5173
 
 ## Nota Penting
 
-Alat ini bersifat nasihat awal sahaja. Ia tidak menyatakan bahawa satu platform lebih baik secara mutlak berbanding platform lain. Keputusan akhir perlu disahkan melalui pilot kecil, semakan dasar organisasi, keselamatan data, bajet, integrasi sistem dan keperluan pengguna sebenar.
+Alat ini bersifat nasihat awal sahaja. Ia tidak menyatakan bahawa satu platform sentiasa lebih sesuai berbanding platform lain. Keputusan akhir perlu disahkan melalui pilot kecil, semakan dasar organisasi, keselamatan data, bajet, integrasi sistem dan keperluan pengguna sebenar.
