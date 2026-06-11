@@ -87,6 +87,37 @@ button {
 .intro-card {
   max-width: 820px;
   padding: clamp(28px, 6vw, 56px);
+  position: relative;
+  width: 100%;
+}
+
+.intro-layout {
+  display: block;
+}
+
+.intro-copy {
+  min-width: 0;
+  padding-right: 220px;
+}
+
+.app-logo {
+  display: block;
+  height: auto;
+  width: clamp(170px, 18vw, 210px);
+}
+
+.intro-logo-panel {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: clamp(36px, 7vw, 72px);
+  top: clamp(58px, 8vw, 86px);
+}
+
+.intro-cta {
+  margin-top: 4px;
+  min-width: 166px;
 }
 
 .eyebrow,
@@ -109,7 +140,7 @@ p {
 
 h1 {
   color: #111827;
-  font-size: clamp(2rem, 4.8vw, 4rem);
+  font-size: clamp(2rem, 4vw, 3.45rem);
   line-height: 1.08;
   margin-bottom: 18px;
 }
@@ -458,6 +489,31 @@ h3 {
   .app-shell {
     align-items: stretch;
     padding: 18px 12px;
+  }
+
+  .intro-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .intro-copy {
+    padding-right: 0;
+  }
+
+  .intro-logo-panel {
+    justify-content: center;
+    order: -1;
+    padding-top: 0;
+    position: static;
+  }
+
+  .app-logo {
+    width: min(120px, 38vw);
+  }
+
+  .intro-cta {
+    width: 100%;
   }
 
   .intro-card,
