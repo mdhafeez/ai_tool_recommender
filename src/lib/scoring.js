@@ -1,8 +1,18 @@
-export const initialScore = {
-  chatgpt_codex: 0,
-  claude_claude_code: 0,
-  gemini_workspace: 0
-};
+export const platformKeys = [
+  "chatgpt_codex",
+  "claude_claude_code",
+  "gemini_workspace",
+  "microsoft_copilot",
+  "deepseek",
+  "perplexity",
+  "github_copilot",
+  "open_source_llm"
+];
+
+export const initialScore = platformKeys.reduce((scores, key) => {
+  scores[key] = 0;
+  return scores;
+}, {});
 
 export function calculateScores(answers, questions) {
   return questions.reduce(

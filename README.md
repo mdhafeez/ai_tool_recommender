@@ -2,11 +2,16 @@
 
 Penasihat Pilihan AI ialah mini web tool untuk membantu pengguna menilai pilihan AI yang lebih sesuai berdasarkan corak kerja, tahap teknikal, keperluan coding, dokumentasi, analisis, ekosistem organisasi dan pertimbangan tadbir urus data.
 
-Alat ini membandingkan tiga kategori:
+Alat ini membandingkan lapan kategori:
 
 - ChatGPT + Codex
 - Claude.ai + Claude Code
 - Gemini / Gemini for Google Workspace + Gemini Code Assist
+- Microsoft Copilot
+- DeepSeek
+- Perplexity
+- GitHub Copilot
+- Open-source / Self-hosted LLM
 
 ## Tujuan Aplikasi
 
@@ -26,11 +31,26 @@ Setiap jawapan menambah mata kepada satu atau lebih kategori AI melalui objek `s
 scores: {
   chatgpt_codex: 3,
   claude_claude_code: 2,
-  gemini_workspace: 1
+  gemini_workspace: 1,
+  microsoft_copilot: 2,
+  perplexity: 1
 }
 ```
 
 Selepas soalan cadangan AI dijawab, aplikasi mengira jumlah skor, menyusun skor tertinggi ke terendah, dan memaparkan cadangan utama serta pilihan kedua.
+
+Kunci skor platform yang digunakan ialah:
+
+- `chatgpt_codex`
+- `claude_claude_code`
+- `gemini_workspace`
+- `microsoft_copilot`
+- `deepseek`
+- `perplexity`
+- `github_copilot`
+- `open_source_llm`
+
+Kategori tambahan memberi ruang kepada use case seperti Microsoft 365, research bersumber, IDE coding, pilihan kos, dan deployment self-hosted. Skor tetap berdasarkan jawapan pengguna, bukan andaian bahawa satu jenama lebih baik secara menyeluruh.
 
 ## Skor Etika Adalah Berasingan
 
