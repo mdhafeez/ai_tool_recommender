@@ -2,12 +2,13 @@
 
 Penasihat Pilihan AI ialah mini web tool untuk membantu pengguna menilai pilihan AI yang lebih sesuai berdasarkan corak kerja, tahap teknikal, keperluan coding, dokumentasi, analisis, ekosistem organisasi dan pertimbangan tadbir urus data.
 
-Alat ini membandingkan lapan kategori:
+Alat ini membandingkan sembilan kategori:
 
 - ChatGPT + Codex
 - Claude.ai + Claude Code
 - Gemini / Gemini for Google Workspace + Gemini Code Assist
 - Microsoft Copilot
+- Kimi — konteks sangat panjang, analisis dokumen, deep research dan agentic coding
 - DeepSeek
 - Perplexity
 - GitHub Copilot
@@ -45,6 +46,7 @@ Kunci skor platform yang digunakan ialah:
 - `claude_claude_code`
 - `gemini_workspace`
 - `microsoft_copilot`
+- `kimi`
 - `deepseek`
 - `perplexity`
 - `github_copilot`

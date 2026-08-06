@@ -88,6 +88,28 @@ export const platforms = {
       nextStep:
         "Jalankan pilot menggunakan use case seperti draf dokumen, analisis Excel, ringkasan e-mel, penyediaan slide dan ringkasan mesyuarat."
     },
+    kimi: {
+      name: "Kimi",
+      scoreLabel: "Kimi",
+      shortDescription:
+        "Kimi sesuai untuk analisis dokumen dan fail yang sangat panjang, deep research, sintesis pelbagai sumber serta tugasan coding berasaskan ejen.",
+      reason:
+        "Berdasarkan jawapan anda, pilihan ini lebih sesuai kerana keperluan anda menekankan konteks yang panjang, analisis banyak dokumen, penyelidikan mendalam, reasoning atau tugasan coding berbilang langkah. Kekuatan khusus Kimi ialah memproses bahan yang besar sambil mengekalkan konteks serta menyediakan aliran kerja ejen untuk research, dokumen dan kod.",
+      suitableFor: [
+        "Penyelidik yang perlu mensintesis banyak sumber dan menghasilkan laporan panjang",
+        "Pengguna yang menganalisis PDF, Word, spreadsheet, slaid atau koleksi fail yang besar",
+        "Developer yang membuat analisis repositori, debugging atau refactoring berbilang fail",
+        "Pasukan yang mahu menguji aliran kerja ejen untuk research dan penghasilan dokumen"
+      ],
+      considerations: [
+        "Kapasiti konteks dan ciri tertentu bergantung pada model serta pelan langganan",
+        "Sumber research, fakta semasa dan output teknikal masih perlu disahkan manusia",
+        "Semak lokasi pemprosesan, polisi privasi dan kesesuaian data organisasi",
+        "Uji mutu Bahasa Malaysia dan istilah domain menggunakan bahan sebenar organisasi"
+      ],
+      nextStep:
+        "Jalankan pilot menggunakan set dokumen panjang dan repositori contoh; nilai ketepatan petikan, kualiti sintesis, konsistensi konteks, hasil coding, masa dan kos."
+    },
     deepseek: {
       name: "DeepSeek",
       scoreLabel: "DeepSeek",
@@ -219,6 +241,15 @@ export const platforms = {
       suitableFor: ["Microsoft 365 organizations", "General officers", "Managers", "Office productivity teams"],
       considerations: ["Review admin controls", "Clarify access policy", "Review AI output", "Assess licensing suitability"],
       nextStep: "Run a pilot for Word documents, Excel analysis, email summaries, slides and meeting notes."
+    },
+    kimi: {
+      name: "Kimi",
+      scoreLabel: "Kimi",
+      shortDescription: "Kimi may fit ultra-long document and file analysis, deep research, multi-source synthesis and agentic coding.",
+      reason: "Based on your answers, this option is more suitable because your needs emphasize long context, large document sets, deep research, reasoning or multi-step coding. Kimi's specialty is maintaining context across large inputs while supporting agent workflows for research, documents and code.",
+      suitableFor: ["Multi-source researchers", "Large document and file analysis", "Repository-scale coding workflows", "Research and document agents"],
+      considerations: ["Features and context limits vary by model and plan", "Verify sources and technical output", "Review privacy and data-processing policy", "Pilot domain and language quality"],
+      nextStep: "Pilot Kimi with long documents and a sample repository; measure citation accuracy, synthesis quality, context consistency, coding results, time and cost."
     },
     deepseek: {
       name: "DeepSeek",

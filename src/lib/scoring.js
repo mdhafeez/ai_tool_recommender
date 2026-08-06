@@ -3,6 +3,7 @@ export const platformKeys = [
   "claude_claude_code",
   "gemini_workspace",
   "microsoft_copilot",
+  "kimi",
   "deepseek",
   "perplexity",
   "github_copilot",
