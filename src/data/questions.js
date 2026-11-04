@@ -1,6 +1,7 @@
 export const questions = [
   {
     id: 1,
+    multiple: true,
     text: { ms: "Apakah tujuan utama anda menggunakan AI?" },
     options: [
       {
@@ -81,6 +82,7 @@ export const questions = [
   },
   {
     id: 4,
+    multiple: true,
     text: { ms: "Apakah jenis dokumen atau kandungan yang paling banyak anda hasilkan?" },
     options: [
       {
@@ -107,6 +109,7 @@ export const questions = [
   },
   {
     id: 5,
+    multiple: true,
     text: { ms: "Siapa pengguna utama AI ini?" },
     options: [
       {
@@ -133,6 +136,7 @@ export const questions = [
   },
   {
     id: 6,
+    multiple: true,
     text: { ms: "Gaya bantuan AI yang anda mahu?" },
     options: [
       {
@@ -275,6 +279,7 @@ export const questions = [
   },
   {
     id: 11,
+    multiple: true,
     text: { ms: "Apakah keperluan research dan maklumat semasa anda?" },
     options: [
       {
@@ -291,6 +296,7 @@ export const questions = [
       },
       {
         label: { ms: "Research bukan keutamaan utama" },
+        exclusive: true,
         scores: { chatgpt_codex: 1, gemini_workspace: 1, microsoft_copilot: 1 }
       }
     ]
