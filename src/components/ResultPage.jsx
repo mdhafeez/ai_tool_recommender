@@ -11,11 +11,17 @@ export default function ResultPage({
   onBack,
   onRestart
 }) {
-  const { ranked, top, secondary, isCloseTopTwo, areAllClose } = recommendation;
+  const { ranked, top, secondary, isTopTie, isCloseTopTwo, areTopThreeClose } = recommendation;
   const platformText = platforms[language];
   const topPlatform = platformText[top.key];
   const secondaryPlatform = platformText[secondary.key];
-  const balanceMessage = areAllClose ? translations.allClose : isCloseTopTwo ? translations.closeTopTwo : "";
+  const balanceMessage = areTopThreeClose
+    ? translations.topThreeClose
+    : isTopTie
+      ? translations.topTie
+      : isCloseTopTwo
+        ? translations.closeTopTwo
+        : "";
 
   return (
     <main className="app-shell result-shell">
@@ -29,15 +35,20 @@ export default function ResultPage({
 
       <section className="result-grid">
         <article className="recommendation-card primary-recommendation">
-          <p className="section-label">{translations.primaryRecommendation}</p>
+          <p className="section-label">
+            {isTopTie ? translations.jointRecommendation : translations.primaryRecommendation}
+          </p>
           <h2>{topPlatform.name}</h2>
           <p>{topPlatform.reason}</p>
         </article>
 
-        <article className="recommendation-card">
-          <p className="section-label">{translations.secondaryRecommendation}</p>
+        {/* On an exact tie, both platforms are presented as equal main recommendations. */}
+        <article className={`recommendation-card ${isTopTie ? "primary-recommendation" : ""}`}>
+          <p className="section-label">
+            {isTopTie ? translations.jointRecommendation : translations.secondaryRecommendation}
+          </p>
           <h2>{secondaryPlatform.name}</h2>
-          <p>{secondaryPlatform.shortDescription}</p>
+          <p>{isTopTie ? secondaryPlatform.reason : secondaryPlatform.shortDescription}</p>
         </article>
       </section>
 
@@ -47,12 +58,12 @@ export default function ResultPage({
           <h2>{translations.scoreComparison}</h2>
         </div>
         <div className="score-grid">
-          {ranked.map((item, index) => (
+          {ranked.map((item) => (
             <ScoreCard
               key={item.key}
               platform={platformText[item.key]}
               score={item.score}
-              rank={index + 1}
+              rank={item.rank}
               translations={translations}
             />
           ))}
