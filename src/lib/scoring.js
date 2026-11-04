@@ -45,18 +45,26 @@ export function getRecommendation(scores) {
       key,
       score
     }))
-    .sort((first, second) => second.score - first.score || first.key.localeCompare(second.key));
+    .sort((first, second) => second.score - first.score || first.key.localeCompare(second.key))
+    // Tied scores share a rank (1, 1, 3, ...); alphabetical order above only decides display order.
+    .map((item, index, items) => ({
+      ...item,
+      rank: items.findIndex((other) => other.score === item.score) + 1
+    }));
 
   const top = ranked[0];
   const secondary = ranked[1];
-  const scoreRange = ranked[0].score - ranked[ranked.length - 1].score;
   const topDifference = getScoreDifference(top.score, secondary.score);
+  // With 9 platforms, "all scores within 3 points" can practically never happen,
+  // so compare the top three instead (matches the "tiga pilihan teratas" message).
+  const topThreeRange = getScoreDifference(top.score, ranked[2].score);
 
   return {
     ranked,
     top,
     secondary,
+    isTopTie: topDifference === 0,
     isCloseTopTwo: topDifference <= 3,
-    areAllClose: scoreRange <= 3
+    areTopThreeClose: topThreeRange <= 3
   };
 }

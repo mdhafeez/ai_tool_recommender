@@ -20,6 +20,7 @@ export const translations = {
       "Cadangan ini dikira secara automatik berdasarkan jawapan yang dipilih. Gunakan keputusan ini sebagai panduan awal sebelum menjalankan pilot sebenar.",
     primaryRecommendation: "Cadangan utama",
     secondaryRecommendation: "Pilihan kedua yang juga boleh dipertimbangkan",
+    jointRecommendation: "Cadangan utama bersama (skor sama)",
     scoreSummary: "Skor ringkas",
     scoreComparison: "Perbandingan mata",
     rankLabel: "Kedudukan {rank}",
@@ -34,8 +35,10 @@ export const translations = {
     restart: "Mula Semula",
     closeTopTwo:
       "Keputusan hampir seimbang. Anda disarankan menjalankan pilot kecil untuk membandingkan kedua-dua pilihan sebelum membuat langganan.",
-    allClose:
-      "Keputusan menunjukkan ketiga-tiga pilihan mempunyai kesesuaian yang hampir sama. Pemilihan akhir perlu dibuat berdasarkan ekosistem kerja, dasar data, bajet dan keperluan pengguna sebenar.",
+    topTie:
+      "Dua platform mendapat skor yang sama. Kedua-duanya dicadangkan sebagai pilihan utama. Jalankan pilot kecil untuk membandingkan kedua-duanya sebelum membuat langganan.",
+    topThreeClose:
+      "Keputusan menunjukkan tiga pilihan teratas mempunyai kesesuaian yang hampir sama. Pemilihan akhir perlu dibuat berdasarkan ekosistem kerja, dasar data, bajet dan keperluan pengguna sebenar.",
     disclaimer:
       "Penilaian ini ialah panduan awal sahaja. Ia tidak menggantikan dasar rasmi organisasi, nasihat perundangan, garis panduan keselamatan data atau penilaian risiko yang lebih menyeluruh. Pemilihan dan penggunaan AI perlu mengambil kira dasar organisasi, keselamatan data, bajet, integrasi sistem dan keperluan pengguna sebenar.",
     footer: "Copyright 2026 CoE Latihan AI Sektor Awam"
@@ -61,6 +64,7 @@ export const translations = {
       "This recommendation is calculated automatically based on your selected answers. Use it as an initial guide before running a real pilot.",
     primaryRecommendation: "Primary recommendation",
     secondaryRecommendation: "Second option to consider",
+    jointRecommendation: "Joint main recommendation (equal score)",
     scoreSummary: "Score summary",
     scoreComparison: "Score comparison",
     rankLabel: "Rank {rank}",
@@ -75,8 +79,10 @@ export const translations = {
     restart: "Restart",
     closeTopTwo:
       "The result is closely balanced. You are advised to run a small pilot to compare both options before making a subscription decision.",
-    allClose:
-      "The result shows that all three options have a similar level of fit. The final selection should consider work ecosystem, data policy, budget and real user needs.",
+    topTie:
+      "Two platforms received the same score. Both are suggested as main options. Run a small pilot to compare them before making a subscription decision.",
+    topThreeClose:
+      "The result shows that the top three options have a similar level of fit. The final selection should consider work ecosystem, data policy, budget and real user needs.",
     disclaimer:
       "This result is a recommendation based on the answers provided, not an absolute assessment that one platform is better than another. Each platform has its own strengths, and the final choice should consider organizational policy, data security, budget, system integration and real user needs.",
     footer: "Copyright 2026 CoE Latihan AI Sektor Awam"
