@@ -8,12 +8,20 @@ import { questions } from "./data/questions.js";
 import { basicEthicsQuestions } from "./data/basicEthicsQuestions.js";
 import { advancedEthicsQuestions } from "./data/advancedEthicsQuestions.js";
 import { translations } from "./data/i18n.js";
-import { calculateScores, getRecommendation } from "./lib/scoring.js";
+import { platforms } from "./data/platforms.js";
+import {
+  MAX_SELECTIONS,
+  calculateScores,
+  getRecommendation,
+  getSelectedIndexes,
+  isQuestionAnswered
+} from "./lib/scoring.js";
 import { calculateAdvancedEthicsReport, calculateBasicEthicsRisk } from "./lib/ethicsScoring.js";
 
 const initialAnswers = {};
 const language = "ms";
 const assessmentQuestions = [...questions, ...basicEthicsQuestions];
+const platformNames = Object.values(platforms[language]).map((platform) => platform.scoreLabel);
 
 export default function App() {
   const [hasStarted, setHasStarted] = useState(false);
@@ -26,7 +34,7 @@ export default function App() {
   const [showAdvancedReport, setShowAdvancedReport] = useState(false);
 
   const currentQuestion = assessmentQuestions[currentQuestionIndex];
-  const selectedOptionIndex = answers[currentQuestion?.id];
+  const selectedIndexes = getSelectedIndexes(answers[currentQuestion?.id]);
   const isLastQuestion = currentQuestionIndex === assessmentQuestions.length - 1;
   const t = translations[language];
 
@@ -48,10 +56,30 @@ export default function App() {
   }
 
   function selectOption(optionIndex) {
-    setAnswers((previousAnswers) => ({
-      ...previousAnswers,
-      [currentQuestion.id]: optionIndex
-    }));
+    setAnswers((previousAnswers) => {
+      if (!currentQuestion.multiple) {
+        return { ...previousAnswers, [currentQuestion.id]: optionIndex };
+      }
+
+      const current = getSelectedIndexes(previousAnswers[currentQuestion.id]);
+      const option = currentQuestion.options[optionIndex];
+      let next;
+
+      if (current.includes(optionIndex)) {
+        next = current.filter((index) => index !== optionIndex);
+      } else if (option.exclusive) {
+        // e.g. "Research bukan keutamaan utama" cannot be combined with other answers.
+        next = [optionIndex];
+      } else {
+        next = current.filter((index) => !currentQuestion.options[index].exclusive);
+        if (next.length >= MAX_SELECTIONS) {
+          return previousAnswers;
+        }
+        next = [...next, optionIndex].sort((first, second) => first - second);
+      }
+
+      return { ...previousAnswers, [currentQuestion.id]: next };
+    });
   }
 
   function goBack() {
@@ -69,7 +97,7 @@ export default function App() {
   }
 
   function goNext() {
-    if (selectedOptionIndex === undefined) {
+    if (selectedIndexes.length === 0) {
       return;
     }
 
@@ -142,7 +170,12 @@ export default function App() {
   if (!hasStarted) {
     return (
       <div className="page-frame">
-        <LandingPage onStart={startAssessment} translations={t} />
+        <LandingPage
+          onStart={startAssessment}
+          translations={t}
+          questionCount={assessmentQuestions.length}
+          platformNames={platformNames}
+        />
         <AppFooter translations={t} />
       </div>
     );
@@ -166,7 +199,7 @@ export default function App() {
     );
   }
 
-  if (showResult && Object.keys(answers).length === assessmentQuestions.length) {
+  if (showResult && assessmentQuestions.every((question) => isQuestionAnswered(question, answers))) {
     return (
       <div className="page-frame">
         <ResultPage
@@ -191,7 +224,7 @@ export default function App() {
           question={currentQuestion}
           questionNumber={currentQuestionIndex + 1}
           totalQuestions={assessmentQuestions.length}
-          selectedOptionIndex={selectedOptionIndex}
+          selectedIndexes={selectedIndexes}
           language={language}
           translations={t}
           onSelectOption={selectOption}

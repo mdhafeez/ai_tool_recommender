@@ -1,6 +1,6 @@
-# Penasihat Pilihan AI
+# Penasihat Pemilihan Platform AI
 
-Penasihat Pilihan AI ialah mini web tool untuk membantu pengguna menilai pilihan AI yang lebih sesuai berdasarkan corak kerja, tahap teknikal, keperluan coding, dokumentasi, analisis, ekosistem organisasi dan pertimbangan tadbir urus data.
+Penasihat Pemilihan Platform AI ialah mini web tool untuk membantu pengguna menilai pilihan AI yang lebih sesuai berdasarkan corak kerja, tahap teknikal, keperluan coding, dokumentasi, analisis, ekosistem organisasi dan pertimbangan tadbir urus data.
 
 Alat ini membandingkan sembilan kategori:
 

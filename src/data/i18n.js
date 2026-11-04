@@ -2,14 +2,47 @@ export const translations = {
   ms: {
     languageName: "Bahasa Malaysia",
     languageToggleLabel: "Pilih bahasa",
-    eyebrow: "Alat penilaian ringkas",
-    title: "Penasihat Pilihan AI",
+    eyebrow: "Alat penilaian keperluan AI",
+    title: "Penasihat Pemilihan Platform AI",
+    heroLead: "Pilih platform AI yang tepat",
+    heroAccent: "untuk organisasi anda",
     subtitle:
-      "Jawab beberapa soalan ringkas untuk mendapatkan cadangan AI yang lebih sesuai berdasarkan keperluan kerja, tahap teknikal dan persekitaran organisasi anda.",
+      "Jawab beberapa soalan ringkas untuk mendapatkan cadangan platform AI yang paling sesuai berdasarkan keperluan kerja, tahap teknikal dan persekitaran organisasi anda.",
     introNote:
       "Alat ini bukan penilaian mutlak antara platform. Ia hanya membantu mencadangkan pilihan yang lebih sesuai berdasarkan jawapan anda.",
     startButton: "Mula Penilaian",
+    howItWorksLink: "Cara ia berfungsi",
+    organisation: "CoE Latihan AI Sektor Awam",
+    metaQuestions: "{count} soalan",
+    metaDuration: "± 5 minit",
+    metaPrivacy: "Jawapan tidak disimpan",
+    previewLabel: "Contoh paparan keputusan",
+    previewPrimary: "Cadangan utama",
+    previewEthics: "Kesediaan etika",
+    previewEthicsValue: "Baik",
+    howItWorksLabel: "Proses",
+    howItWorksTitle: "Tiga langkah ke keputusan yang lebih yakin",
+    steps: [
+      {
+        title: "Nilai keperluan",
+        text: "Jawab soalan tentang tujuan penggunaan, ekosistem kerja, tahap teknikal dan kesediaan etika."
+      },
+      {
+        title: "Bandingkan platform",
+        text: "Jawapan anda diberi skor secara automatik dan dibandingkan merentas {platformCount} platform AI."
+      },
+      {
+        title: "Sahkan melalui pilot",
+        text: "Gunakan cadangan sebagai panduan awal dan jalankan pilot kecil sebelum membuat langganan."
+      }
+    ],
+    platformsLabel: "Liputan",
+    platformsTitle: "Platform AI yang dinilai",
+    ctaTitle: "Sedia untuk bermula?",
+    ctaText: "Penilaian mengambil masa kira-kira lima minit dan boleh diulang pada bila-bila masa.",
     assessmentLabel: "Penilaian keperluan",
+    multiHint: "Boleh pilih lebih daripada satu jawapan (maksimum {max}).",
+    multiCount: "{count}/{max} dipilih",
     questionProgress: "Soalan {current} daripada {total}",
     backButton: "Kembali",
     nextButton: "Seterusnya",
@@ -41,19 +74,52 @@ export const translations = {
       "Keputusan menunjukkan tiga pilihan teratas mempunyai kesesuaian yang hampir sama. Pemilihan akhir perlu dibuat berdasarkan ekosistem kerja, dasar data, bajet dan keperluan pengguna sebenar.",
     disclaimer:
       "Penilaian ini ialah panduan awal sahaja. Ia tidak menggantikan dasar rasmi organisasi, nasihat perundangan, garis panduan keselamatan data atau penilaian risiko yang lebih menyeluruh. Pemilihan dan penggunaan AI perlu mengambil kira dasar organisasi, keselamatan data, bajet, integrasi sistem dan keperluan pengguna sebenar.",
-    footer: "Copyright 2026 CoE Latihan AI Sektor Awam"
+    footer: "© 2026 CoE Latihan AI Sektor Awam · INTAN"
   },
   en: {
     languageName: "English",
     languageToggleLabel: "Choose language",
-    eyebrow: "Short assessment tool",
-    title: "AI Choice Advisor",
+    eyebrow: "AI needs assessment tool",
+    title: "AI Platform Selection Advisor",
+    heroLead: "Choose the right AI platform",
+    heroAccent: "for your organisation",
     subtitle:
-      "Answer a few short questions to receive an AI recommendation that better matches your work needs, technical level and organizational environment.",
+      "Answer a few short questions to receive the AI platform recommendation that best matches your work needs, technical level and organisational environment.",
     introNote:
       "This tool is not an absolute assessment of platforms. It only helps suggest a more suitable option based on your answers.",
     startButton: "Start Assessment",
+    howItWorksLink: "How it works",
+    organisation: "CoE Latihan AI Sektor Awam",
+    metaQuestions: "{count} questions",
+    metaDuration: "± 5 minutes",
+    metaPrivacy: "Answers are not stored",
+    previewLabel: "Sample result view",
+    previewPrimary: "Primary recommendation",
+    previewEthics: "Ethics readiness",
+    previewEthicsValue: "Good",
+    howItWorksLabel: "Process",
+    howItWorksTitle: "Three steps to a more confident decision",
+    steps: [
+      {
+        title: "Assess your needs",
+        text: "Answer questions about your use case, work ecosystem, technical level and ethics readiness."
+      },
+      {
+        title: "Compare platforms",
+        text: "Your answers are scored automatically and compared across {platformCount} AI platforms."
+      },
+      {
+        title: "Validate with a pilot",
+        text: "Use the recommendation as an initial guide and run a small pilot before subscribing."
+      }
+    ],
+    platformsLabel: "Coverage",
+    platformsTitle: "AI platforms assessed",
+    ctaTitle: "Ready to begin?",
+    ctaText: "The assessment takes about five minutes and can be repeated at any time.",
     assessmentLabel: "Needs assessment",
+    multiHint: "You may choose more than one answer (up to {max}).",
+    multiCount: "{count}/{max} selected",
     questionProgress: "Question {current} of {total}",
     backButton: "Back",
     nextButton: "Next",
@@ -85,7 +151,7 @@ export const translations = {
       "The result shows that the top three options have a similar level of fit. The final selection should consider work ecosystem, data policy, budget and real user needs.",
     disclaimer:
       "This result is a recommendation based on the answers provided, not an absolute assessment that one platform is better than another. Each platform has its own strengths, and the final choice should consider organizational policy, data security, budget, system integration and real user needs.",
-    footer: "Copyright 2026 CoE Latihan AI Sektor Awam"
+    footer: "© 2026 CoE Latihan AI Sektor Awam · INTAN"
   }
 };
 
